@@ -7,7 +7,7 @@ conexao = mysql.connector.connect(
     host='localhost',
     port=3307,
     user='root',
-    password='senac',
+    password='***',
     database='loja_simples',
     use_pure=True
 )
@@ -81,4 +81,5 @@ print(f"Total de vendas registradas: R$ {total_geral:.2f}")
 # Fechar conexão e banco
 cursor.close()
 conexao.close()
+
 
