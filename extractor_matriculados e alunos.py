@@ -7,7 +7,7 @@ conn= mysql.connector.connect(
     host = 'localhost',
     port = 3307,
     user = 'root',
-    password = 'senac',
+    password = '****',
     database = 'fitlife',
     use_pure = True # força a entrada do script no banco de dados
 )
@@ -43,4 +43,5 @@ with open("dados.csv", "w", newline="", encoding="utf-8") as file:
  
 # Fechar cursor e conexão
 cursor.close()
+
 conn.close()
