@@ -15,7 +15,7 @@ conexao = mysql.connector.connect(
 # Pega todas as respostas e coloca numa lista
 cursor = conexao.cursor()
 
-# Socilita no banco os dados das vendas
+# Socilita no banco os dados das colunas vendas
 query = """
 SELECT
     c.id AS id_cliente, 
@@ -40,7 +40,7 @@ for row in resultados:
     nova_linha[4] = f"R$ {row[4]:.2f}"  # Preço Unitário
     nova_linha[5] = f"R$ {row[5]:.2f}"  # Valor Total
     
-    # Data de venda formatada
+    # Data de venda formatada no modelo BR
     nova_linha[6] = row[6].strftime("%d/%m/%Y")  # <--- aplica somente na data
 
     resultados_formatados.append(nova_linha)
@@ -73,7 +73,7 @@ with open(nome_arquivo, 'w', newline='', encoding='utf-8') as arquivo_csv:
     writer.writerows(resultados_formatados)
 
 # Calcular total geral de vendas, quanto a loja vendeu no total
-total_geral = sum(row[4] for row in resultados) 
+total_geral = sum(row[5] for row in resultados) 
 
 print(f"Arquivo '{nome_arquivo}' gerado com sucesso!")
 print(f"Total de vendas registradas: R$ {total_geral:.2f}")
@@ -81,3 +81,4 @@ print(f"Total de vendas registradas: R$ {total_geral:.2f}")
 # Fechar conexão e banco
 cursor.close()
 conexao.close()
+
