@@ -6,7 +6,7 @@ conexao = mysql.connector.connect(
     host="localhost",
     user="root",
     port=3307,
-    password="senac",
+    password="****",
     database="fitlife",
     use_pure = True
 )
@@ -57,4 +57,5 @@ with open(nome_arquivo,"w", encoding="utf-8") as arquivo:
 
 # Encerramento da conexão
 cursor.close()
+
 conexao.close()
